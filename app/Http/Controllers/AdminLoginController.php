@@ -21,8 +21,7 @@ class AdminLoginController extends Controller
         ];
 
         if (Auth::attempt($checkInfoLogin)) {
-            // return view('admin.dashboard.index');
-            dd('success');
+            return redirect()->route('dashboard.index');
         } else {
             echo "<script>alert('Sai tên đăng nhập hoặc mật khẩu')</script>";
             return view('admin.login.login');

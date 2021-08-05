@@ -111,54 +111,40 @@
                         </div>
                         <form action="{{route('to_login')}}" method="post">
                             @csrf
-                            @error('username')
-                            <div class="alert alert-danger">{{ $message }}
-                    </div>
-                    @enderror
-
-                    @error('password')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                    {{-- @if ($errors->any())
-                    <div class="alert alert-danger">
-                        Sai tên đăng nhập hoặc mật khẩu
-                    </div>
-                    @endif --}}
-
-                    <div class="form-group mb-3">
-                        <div class="input-group input-group-merge input-group-alternative">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                            <div class="form-group mb-3">
+                                <div class="input-group input-group-merge input-group-alternative">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                    </div>
+                                    <input class="form-control @error('username') is-invalid @enderror" name="username"
+                                        placeholder="Tên đăng nhập" type="text">
+                                </div>
                             </div>
-                            <input class="form-control @error('username') is-invalid @enderror" name="username"
-                                placeholder="Tên đăng nhập" type="text">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group input-group-merge input-group-alternative">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                            <div class="form-group">
+                                <div class="input-group input-group-merge input-group-alternative">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                                    </div>
+                                    <input class="form-control @error('password') is-invalid @enderror" name="password"
+                                        placeholder="Mật khẩu" type="password">
+                                </div>
                             </div>
-                            <input class="form-control @error('password') is-invalid @enderror" name="password"
-                                placeholder="Mật khẩu" type="password">
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <button class="btn btn-primary my-4">Đăng nhập</button>
-                    </div>
-                    <div class="text-center">
-                        <span class="text-muted text-center">Nếu bạn quên mật khẩu,hoặc chưa có tài khoản vui
-                            lòng<a href="https://www.facebook.com/nguyenphiikhanh" class="font-weight-bold ml-1"
-                                target="_blank">liên hệ với mình</a></span>
-                    </div>
+                            <div class="text-center">
+                                <button class="btn btn-primary my-4">Đăng nhập</button>
+                            </div>
+                            <div class="text-center">
+                                <span class="text-muted text-center">Nếu bạn quên mật khẩu,hoặc chưa có tài khoản vui
+                                    lòng<a href="https://www.facebook.com/nguyenphiikhanh" class="font-weight-bold ml-1"
+                                        target="_blank">liên hệ với mình</a></span>
+                            </div>
 
-                    </form>
+                        </form>
+                    </div>
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
-</div>
 </div>
 <!-- Footer -->
 <footer class="py-5" id="footer-main">

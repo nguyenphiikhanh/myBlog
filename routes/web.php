@@ -24,3 +24,14 @@ Route::prefix('/dang-nhap-quan-ly-noi-dung')->group(function(){
     ]);
     Route::post('/','AdminLoginController@store')->name('to_login');
 });
+
+
+
+Route::prefix('/dashboard')->group(function(){    //Admin Dashboard Route
+    Route::get('/',[
+        'as' => 'dashboard.index',
+        'uses' => 'DashboardController@index'
+    ]);
+    
+});
+
