@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use PHPUnit\TextUI\XmlConfiguration\Group;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dang-nhap','AdminLoginController@login')->name('admin_login');
-Route::post('/dang-nhap','AdminLoginController@store')->name('admin_login');
+Route::prefix('/dang-nhap-quan-ly-noi-dung')->group(function(){
+    Route::get('/',[
+        'as' => 'admin_login',
+        'uses' => 'AdminLoginController@login'
+    ]);
+    Route::post('/','AdminLoginController@store')->name('to_login');
+});
