@@ -20,13 +20,14 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="profile.html">
-                <i class="ni ni-single-02 text-yellow"></i>
-                <span class="nav-link-text">User trên Blog</span>
+              <a class="nav-link" href="tables.html">
+                <i class="ni ni-book-bookmark text-default"></i>
+                <span class="nav-link-text">Thêm bài viết mới</span>
               </a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" href="tables.html">
+              <a class="nav-link" href="{{route('category.index')}}">
                 <i class="ni ni-bullet-list-67 text-default"></i>
                 <span class="nav-link-text">Danh mục bài viết</span>
               </a>
@@ -35,7 +36,14 @@
             <li class="nav-item">
               <a class="nav-link" href="register.html">
                 <i class="ni ni-circle-08 text-pink"></i>
-                <span class="nav-link-text">Register</span>
+                <span class="nav-link-text">Đăng ký thành viên mới</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="profile.html">
+                <i class="ni ni-single-02 text-yellow"></i>
+                <span class="nav-link-text">User trên Blog</span>
               </a>
             </li>
 

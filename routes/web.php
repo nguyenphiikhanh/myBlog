@@ -27,11 +27,43 @@ Route::prefix('/dang-nhap-quan-ly-noi-dung')->group(function(){
 
 
 
-Route::prefix('/dashboard')->group(function(){    //Admin Dashboard Route
+Route::prefix('/admin')->group(function(){    //Admin Dashboard
     Route::get('/',[
         'as' => 'dashboard.index',
         'uses' => 'DashboardController@index'
     ]);
     
+
+    Route::prefix('/danh-muc-bai-viet')->group(function(){ //
+        Route::get('/',[
+            'as' => 'category.index',
+            'uses' => 'CategoryPostController@index'
+        ]);
+
+        Route::get('/create',[
+            'as' => 'category.create',
+            'uses' => 'CategoryPostController@create'
+        ]);
+        
+        Route::post('/store',[
+            'as' => 'category.store',
+            'uses' => 'CategoryPostController@store'
+        ]);
+
+        Route::get('/edit/danh-muc-PK_M{id}',[
+            'as' => 'category.edit',
+            'uses' => 'CategoryPostController@edit'
+        ]);
+
+        Route::post('/update/danh-muc-PK_M{id}',[
+            'as' => 'category.update',
+            'uses' => 'CategoryPostController@update'
+        ]);
+
+        // delete danh muc lam sau khi xong module post
+    });
+
+
+
 });
 

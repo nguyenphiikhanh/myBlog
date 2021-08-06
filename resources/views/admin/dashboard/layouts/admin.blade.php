@@ -16,7 +16,6 @@
     <!-- Icons -->
     <link rel="stylesheet" href="{{asset('admin-nguyenphikhanh.net/assets/vendor/nucleo/css/nucleo.css')}}"
         type="text/css">
-    @yield('css')
     <link rel="stylesheet"
         href="{{asset('admin-nguyenphikhanh.net/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css')}}"
         type="text/css">
@@ -24,9 +23,20 @@
     <link rel="stylesheet" href="{{asset('admin-nguyenphikhanh.net/assets/css/argon.css')}}?v=1.2.0" type="text/css">
 </head>
 
-<body class="bg-default">
+<body>
 
-    @yield('content')
+    @include('admin.dashboard.partials.sidenav')
+
+    <!-- Main content -->
+    <div class="main-content" id="panel">
+
+        @include('admin.dashboard.partials.topnav')
+
+        @yield('content')
+
+        @include('admin.dashboard.partials.footer')
+        
+    </div>
 
     <!-- Argon Scripts -->
     <!-- Core -->

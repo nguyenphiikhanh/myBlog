@@ -6,7 +6,7 @@
 
 @section('content')
 
-@include('admin.dashboard.partials.header')
+@include('admin.dashboard.partials.dashboard-header')
     <!-- Page content -->
     <div class="container-fluid mt--6">
       
