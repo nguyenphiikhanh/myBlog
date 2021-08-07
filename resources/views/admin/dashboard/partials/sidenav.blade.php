@@ -20,9 +20,16 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="tables.html">
+              <a class="nav-link" href="{{route('posts.create')}}">
                 <i class="ni ni-book-bookmark text-default"></i>
                 <span class="nav-link-text">Thêm bài viết mới</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('posts.index')}}"> 
+                <i class="ni ni-single-copy-04 text-default"></i>
+                <span class="nav-link-text">Danh sách bài viết</span>
               </a>
             </li>
 
@@ -32,7 +39,8 @@
                 <span class="nav-link-text">Danh mục bài viết</span>
               </a>
             </li>
-
+          
+            {{-- These module is admin-permissions --}}
             <li class="nav-item">
               <a class="nav-link" href="register.html">
                 <i class="ni ni-circle-08 text-pink"></i>
@@ -53,6 +61,7 @@
                 <span class="nav-link-text">Icons(For Deverloper)</span>
               </a>
             </li>
+            {{-- These module is admin-permissions --}}
           </ul>
         </div>
       </div>

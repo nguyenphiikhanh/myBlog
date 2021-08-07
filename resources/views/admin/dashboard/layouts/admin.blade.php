@@ -21,6 +21,8 @@
         type="text/css">
     <!-- Argon CSS -->
     <link rel="stylesheet" href="{{asset('admin-nguyenphikhanh.net/assets/css/argon.css')}}?v=1.2.0" type="text/css">
+
+    @yield('css')
 </head>
 
 <body>
@@ -49,6 +51,8 @@
     </script>
     <!-- Argon JS -->
     <script src="{{asset('admin-nguyenphikhanh.net/assets/js/argon.js')}}?v=1.2.0"></script>
+
+    @yield('js')
 </body>
 
 </html>

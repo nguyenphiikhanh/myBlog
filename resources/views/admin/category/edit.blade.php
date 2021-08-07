@@ -1,4 +1,4 @@
-@extends('admin.dashboard.layouts.dashboard')
+@extends('admin.dashboard.layouts.admin')
 
 @section('title')
 <title>Sửa danh mục bài viết</title>
