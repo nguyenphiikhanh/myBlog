@@ -6,7 +6,7 @@
 
 @section('css')
 <link rel="stylesheet" href="{{asset('admin-nguyenphikhanh.net/posts/amsify.suggestags.css')}}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/css/selectize.bootstrap4.css"/>
+<link rel="stylesheet" href="{{asset('admin-nguyenphikhanh.net/posts/selectize.bootstrap4.css')}}"/>
 @endsection
 
 @section('content')
@@ -69,8 +69,8 @@
                                 @error('content')
                                 <div style="padding: 2px 5px;" class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                                <textarea name="content" placeholder="Nội dung..."
-                                    class="form-control @error('content') is-invalid @enderror" rows="10"></textarea>
+                                <textarea id="content_editor" name="content" placeholder="Nội dung..."
+                                    class="form-control @error('content') is-invalid @enderror" rows="30"></textarea>
                             </div>
                         </div>
 
@@ -88,9 +88,10 @@
 
 @section('js')
 <script src="{{asset('admin-nguyenphikhanh.net/posts/jquery.amsify.suggestags.js')}}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
+<script src="{{asset('admin-nguyenphikhanh.net/posts/selectize.min.js')}}"></script>
+<script src="{{asset('admin-nguyenphikhanh.net/ckeditor/ckeditor.js')}}"></script>
 <script src="{{asset('admin-nguyenphikhanh.net/posts/post.js')}}"></script>
 <script>
-
+    CKEDITOR.replace('content_editor');
 </script>
 @endsection
