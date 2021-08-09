@@ -1,18 +1,26 @@
 @extends('admin.dashboard.layouts.admin')
 
 @section('title')
-<title>Thêm bài viết mới</title>
+<title>Sửa bài viết</title>
 @endsection
 
 @section('css')
 <link rel="stylesheet" href="{{asset('admin-nguyenphikhanh.net/posts/selectize.bootstrap4.css')}}" />
 <link href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet"
     type="text/css" />
+    <style>
+        .image_post{
+            width: 100%;
+            margin-top:15px;
+            height: 130px;
+            object-fit: cover; 
+        }
+    </style>
 @endsection
 
 @section('content')
 
-@include('admin.dashboard.partials.content-header',['key'=>'Thêm bài viết mới'])
+@include('admin.dashboard.partials.content-header',['key'=>'Sửa bài viết'])
 <!-- Page content -->
 <div class="container-fluid mt--6">
     <div class="row">
@@ -20,10 +28,10 @@
             <div class="card">
                 <!-- Card header -->
                 <div class="card-header border-0">
-                    <h3 class="mb-0">Thêm bài viết</h3>
+                    <h3 class="mb-0">Sửa bài viết</h3>
                 </div>
                 <div class="col-md-12">
-                    <form action="{{route('posts.store')}}" method="post" enctype="multipart/form-data">
+                    <form action="" method="post" enctype="multipart/form-data">
 
                         <div class="col-md-7">
                             @csrf
@@ -33,26 +41,37 @@
                                 <div style="padding: 2px 5px;" class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                                 <textarea name="name" placeholder="Tiêu đề bài viêt"
-                                    class="form-control @error('name') is-invalid @enderror" rows="3"></textarea>
-                            </div>
+                                    class="form-control @error('name') is-invalid @enderror" rows="3">{{$post->name}}</textarea>
+                                </div>
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Ảnh Thumbnail</label>
                                 @error('thumnail_image_path')
                                 <div style="padding: 2px 5px;" class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                                <input name="thumnail_image_path" type="file" class="form-control-file">
+                                <input name="thumnail_image_path" type="file" class="form-control-file @error('thumnail_image_path') is-invalid @enderror">
+
+                                <div class="col-md-3">
+                                    <div class="row">
+                                        <img class="image_post" src="{{$post->thumnail_image_path}}">
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="form-group">
                                 <label>Chọn danh mục</label>
-                                <select name="category_id" class="form-control choose_cate"
+                                <select name="category_id" class="form-control @error('category_id') is-invalid @enderror choose_cate"
                                     placeholder="--Chọn một danh mục--">
                                     <option value=""></option>
                                     @foreach ($categories as $category)
-                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                    <option {{$post_category->id == $category->id ?'selected' :''}}
+                                     value="{{$category->id}}">{{$category->name}}</option>
                                     @endforeach
                                 </select>
+
+                                @error('category_id')
+                                <div style="padding: 2px 5px;" class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
 
                         </div>
@@ -66,7 +85,7 @@
                                         <option value=""></option>
 
                                         @foreach ($tags as $tag)
-                                        <option value="{{$tag->id}}">{{$tag->name}}</option>
+                                        <option {{$post_tags->contains('id', $tag->id) ?'selected' :''}} value="{{$tag->id}}">{{$tag->name}}</option>
                                         @endforeach
 
 
@@ -80,12 +99,12 @@
                                 @enderror
                                 <textarea id="content_editor" name="content" placeholder="Nội dung..."
                                     class="form-control @error('content') is-invalid @enderror content-editor"
-                                    rows="30"></textarea>
+                                    rows="30">{{$post->content}}</textarea>
                             </div>
                         </div>
 
                         <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-outline-primary">Đăng bài</button>
+                            <button type="submit" class="btn btn-outline-primary">Lưu</button>
                         </div>
                     </form>
                 </div>
