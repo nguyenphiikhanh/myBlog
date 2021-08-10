@@ -60,7 +60,9 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                             <a class="dropdown-item" href="{{route('tags.edit',['id'=>$tag->id])}}">Sửa tag</a>
-                                            <a class="dropdown-item" href="#">Xoá tag</a>
+                                            <a class="dropdown-item action_delete"
+                                            data-url="{{route('tags.delete',['id'=>$tag->id])}}"
+                                            href="">Xoá tag</a>
                                         </div>
                                     </div>
                                 </td>
@@ -81,4 +83,9 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+    <script src="{{asset('vendor/sweetAlert/sweetalert2@11.js')}}"></script>
+    <script src="{{asset('JsModel/deleteTag.js')}}"></script>
 @endsection

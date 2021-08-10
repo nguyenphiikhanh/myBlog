@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\TagRequest;
 use App\Tag;
+use App\Traits\DeleteModelTrait;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
@@ -13,6 +14,13 @@ class TagController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     private $tag;
+
+     public function __construct(Tag $tag)
+     {
+         $this->tag = $tag;
+     }
     public function index()
     {
         //
@@ -99,8 +107,15 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     use DeleteModelTrait;
     public function destroy($id)
     {
-        //
+        // 
+        $postTags = $this->tag->find($id)->post_tags();
+
+        $postTags->delete();
+
+        return $this->deleteModelTrait($id,$this->tag);
     }
 }

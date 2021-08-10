@@ -93,6 +93,11 @@ Route::prefix('/admin')->group(function () {    //Admin Dashboard
         'uses' => 'TagController@index'
     ]);
 
+    Route::get('/tags-delete-T{id}G', [   // tags
+        'as' => 'tags.delete',
+        'uses' => 'TagController@destroy'
+    ]);
+
     Route::get('/them-bai-viet-moi', [  //post
         'as' => 'posts.create',
         'uses' => 'PostController@create'
