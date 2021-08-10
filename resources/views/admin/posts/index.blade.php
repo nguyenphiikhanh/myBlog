@@ -4,6 +4,16 @@
 <title>Danh sách bài viết</title>
 @endsection
 
+@section('css')
+    <style>
+        .thumnail_image{
+            width:100%;
+            height: 130px;
+            object-fit: cover;
+        }
+    </style>
+@endsection
+
 @section('content')
 
 @include('admin.dashboard.partials.content-header',['key'=>'Danh sách bài viết'])
@@ -23,6 +33,7 @@
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col" class="sort" data-sort="name">#</th>
+                                <th scope="col" class="sort" data-sort="name"></th>
                                 <th scope="col" class="sort" data-sort="name">Tên bài viết</th>
                                 <th scope="col" class="sort" data-sort="name">Danh mục</th>
                                 <th scope="col" class="sort" data-sort="budget">Lượt xem</th>
@@ -43,8 +54,16 @@
 
                                 <th scope="row">
                                     <div class="media align-items-center">
+                                        <div class="media-body col-md-12">
+                                            <img class="thumnail_image" src="{{$post->thumnail_image_path}}">
+                                        </div>
+                                    </div>
+                                </th>
+
+                                <th scope="row">
+                                    <div class="media align-items-center">
                                         <div class="media-body">
-                                            <span class="name mb-0 text-sm">{{$post->name}}</span>
+                                            <span class="name mb-0 text-sm"><strong>{{$post->name}}</strong></span>
                                         </div>
                                     </div>
                                 </th>
@@ -68,7 +87,7 @@
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                             <a class="dropdown-item" href="#">Xem bài viêt</a>
                                             <a class="dropdown-item" href="{{route('posts.edit',['id'=>$post->id])}}">Sửa bài viết</a>
-                                            <a class="dropdown-item" href="#">Xoá bài viết</a>
+                                            <a class="dropdown-item action_delete" data-url="{{route('posts.delete',['id'=>$post->id])}}" href="">Xoá bài viết</a>
                                         </div>
                                     </div>
                                 </td>
@@ -82,10 +101,15 @@
                 </div>
                 <!-- Card footer -->
                 <div class="card-footer py-4">
-                    {{-- {{$categories->links()}} --}}
+                    {{$posts->links()}}
                 </div>
             </div>
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+    <script src="{{asset('vendor/sweetAlert/sweetalert2@11.js')}}"></script>
+    <script src="{{asset('JsModel/deletePost.js')}}"></script>
 @endsection

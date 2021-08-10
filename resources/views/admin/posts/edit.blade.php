@@ -31,7 +31,7 @@
                     <h3 class="mb-0">Sửa bài viết</h3>
                 </div>
                 <div class="col-md-12">
-                    <form action="" method="post" enctype="multipart/form-data">
+                    <form action="{{route('posts.update',['id' => $post->id])}}" method="post" enctype="multipart/form-data">
 
                         <div class="col-md-7">
                             @csrf

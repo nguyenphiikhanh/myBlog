@@ -30,6 +30,13 @@
                             <input name="name" type="text" class="form-control @error('name') is-invalid @enderror"
                             value="{{$category->name}}">
                         </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Nội dung danh mục</label>
+
+                            <textarea name="category_content" rows="3" placeholder="Nhập mô tả danh mục"
+                            class="form-control">{{$category->category_content}}</textarea>
+                        </div>
                         <button type="submit" class="btn btn-primary">Lưu</button>
                     </form>
                 </div>

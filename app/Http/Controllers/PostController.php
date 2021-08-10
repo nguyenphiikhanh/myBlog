@@ -4,16 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Http\Requests\PostRequest;
+use App\Http\Requests\PostUpdateRequest;
 use App\Post;
 use App\Tag;
+use App\Traits\DeleteModelTrait;
 use App\Traits\ImageUpload;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use stdClass;
 
 class PostController extends Controller
 {
@@ -32,7 +31,7 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts = Post::latest()->paginate(6);
+        $posts = Post::latest()->paginate(5);
         return view('admin.posts.index',compact('posts'));
     }
 
@@ -124,9 +123,41 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostUpdateRequest $request, $id)
     {
         //
+        try {
+            DB::beginTransaction();
+            $dataUpdate = [
+                'name' => $request->name,
+                'user_id' => Auth::id(),
+                'category_id' => $request->category_id,
+                'content' => $request->content,
+                'slug' => Str::slug($request->name),
+            ];
+            $imageUpload = $this->imageUpload($request, 'thumnail_image_path', "postImage");
+
+            $post = $this->post->find($id);
+            // dd($post->thumnail_image_path);
+
+            if (!empty($imageUpload)) {
+                unlink('.'.$post->thumnail_image_path);
+                $dataUpdate['thumnail_image_path'] = $imageUpload['file_path'];
+            } else{
+                $dataUpdate['thumnail_image_path'] = $post->thumnail_image_path;
+            }
+
+            $post->update($dataUpdate);
+
+            $tags = $request->tags;
+
+            $post->tags()->sync($tags);
+            DB::commit();
+            return redirect()->route('posts.index');
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            Log::error("message : ".$exception->getMessage()." Line : ".$exception->getLine());
+        }
     }
 
     /**
@@ -135,8 +166,13 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    use DeleteModelTrait;
     public function destroy($id)
     {
         //
+        $post = $this->post->find($id);
+        $post->tags()->detach();
+        unlink('.'.$post->thumnail_image_path);
+        return $this->deleteModelTrait($id,$this->post);
     }
 }

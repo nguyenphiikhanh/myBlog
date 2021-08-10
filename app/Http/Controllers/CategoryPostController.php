@@ -42,7 +42,8 @@ class CategoryPostController extends Controller
     {
         //
         Category::create([
-            'name' => $request->name
+            'name' => $request->name,
+            'category_content' =>$request->category_content
         ]);
 
         return redirect()->route('category.index');
@@ -79,12 +80,13 @@ class CategoryPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CategoryRequest $request, $id)
+    public function update(Request $request, $id)
     {
         //
         $category = Category::find($id);
         $category->update([
-            'name' => $request->name
+            'name' => $request->name,
+            'category_content' =>$request->category_content
         ]);
         return redirect()->route('category.index');
     }

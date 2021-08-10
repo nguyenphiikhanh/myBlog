@@ -98,6 +98,16 @@ Route::prefix('/admin')->group(function () {    //Admin Dashboard
         'uses' => 'PostController@edit'
     ]);
 
+    Route::post('/sua-bai-viet-P{id}T', [
+        'as' => 'posts.update',
+        'uses' => 'PostController@update'
+    ]);
+
+    Route::get('/xoa-bai-viet-P{id}T', [
+        'as' => 'posts.delete',
+        'uses' => 'PostController@destroy'
+    ]);
+
     
     Route::post('/them-bai-viet-moi', [
         'as' => 'posts.store',

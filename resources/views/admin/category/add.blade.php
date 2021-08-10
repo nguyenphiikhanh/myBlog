@@ -30,6 +30,13 @@
                             @enderror
                             <input name="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Nhập tên danh mục">
                         </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Nội dung danh mục</label>
+
+                            <textarea name="category_content" rows="3" placeholder="Nhập mô tả danh mục"
+                            class="form-control"></textarea>
+                        </div>
                         <button type="submit" class="btn btn-primary">Thêm</button>
                     </form>
                 </div>
