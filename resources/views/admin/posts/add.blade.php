@@ -37,7 +37,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Ảnh Thumbnail</label>
+                                <label>Ảnh Thumbnail</label>
                                 @error('thumnail_image_path')
                                 <div style="padding: 2px 5px;" class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -46,7 +46,10 @@
 
                             <div class="form-group">
                                 <label>Chọn danh mục</label>
-                                <select name="category_id" class="form-control choose_cate"
+                                @error('category_id')
+                                <div style="padding: 2px 5px;" class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                                <select name="category_id" class="form-control @error('category_id') is-invalid @enderror choose_cate"
                                     placeholder="--Chọn một danh mục--">
                                     <option value=""></option>
                                     @foreach ($categories as $category)

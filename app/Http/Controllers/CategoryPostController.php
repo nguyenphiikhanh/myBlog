@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Http\Requests\CategoryRequest;
+use App\Traits\DeleteModelTrait;
 use Illuminate\Http\Request;
 
 class CategoryPostController extends Controller
@@ -13,6 +14,13 @@ class CategoryPostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     private $category;
+
+     public function __construct(Category $category)
+     {
+         $this->category = $category;
+     }
 
     public function index()
     {
@@ -97,8 +105,18 @@ class CategoryPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    use DeleteModelTrait;
     public function destroy($id)
     {
         //
+        $category = $this->category->find($id);
+        $posts = $category->posts;
+        foreach($posts as $post){
+            $post->tags()->detach();
+            unlink('.'.$post->thumnail_image_path);
+        }
+        $category->posts()->delete();
+        return $this->deleteModelTrait($id,$this->category);
     }
 }

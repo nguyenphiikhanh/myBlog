@@ -25,7 +25,8 @@ class TagRequest extends FormRequest
     {
         return [
             //
-            "name" => "bail|required|unique:tags|max:100"
+            "name" => "bail|required|unique:tags|max:100",
+            'tag_content' => "required"
         ];
     }
 
@@ -35,6 +36,9 @@ class TagRequest extends FormRequest
             'name.required' => 'Tag không được để trống.',
             'name.unique' => 'Tag đã tồn tại.',
             'name.max' => 'không vượt quá 80 kí tự.',
+            'tag_content.required' => 'Nội dung tag không được để trống.',
+
+
         ];
     }
 }

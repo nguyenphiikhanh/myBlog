@@ -27,7 +27,8 @@ class PostRequest extends FormRequest
             //
             'name' => "bail|required|unique:posts|max:300|min:10",
             'category_id' => "required",
-            'thumnail_image_path' =>"required"
+            'thumnail_image_path' =>"required",
+            'content' =>"required"
         ];
     }
 
@@ -39,7 +40,8 @@ class PostRequest extends FormRequest
             'name.max' => 'không vượt quá 200 kí tự.',
             'name.min' => 'Tiêu đề bài viết không được ít hơn 10 kí tự',
             "category_id.required" => 'Vui lòng chọn một danh mục',
-            'thumnail_image_path.required' =>"Vui lòng tải lên một hình ảnh."
+            'thumnail_image_path.required' =>"Vui lòng tải lên một hình ảnh.",
+            "content.required" => "Nội dung bài viết không được để trống.",
         ];
     }
 }

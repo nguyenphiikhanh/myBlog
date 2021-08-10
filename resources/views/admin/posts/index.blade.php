@@ -5,13 +5,6 @@
 @endsection
 
 @section('css')
-    <style>
-        .thumnail_image{
-            width:100%;
-            height: 130px;
-            object-fit: cover;
-        }
-    </style>
 @endsection
 
 @section('content')
@@ -33,7 +26,6 @@
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col" class="sort" data-sort="name">#</th>
-                                <th scope="col" class="sort" data-sort="name"></th>
                                 <th scope="col" class="sort" data-sort="name">Tên bài viết</th>
                                 <th scope="col" class="sort" data-sort="name">Danh mục</th>
                                 <th scope="col" class="sort" data-sort="budget">Lượt xem</th>
@@ -48,14 +40,6 @@
                                     <div class="media align-items-center">
                                         <div class="media-body">
                                             <span class="name mb-0 text-sm">P{{$post->id}}T</span>
-                                        </div>
-                                    </div>
-                                </th>
-
-                                <th scope="row">
-                                    <div class="media align-items-center">
-                                        <div class="media-body col-md-12">
-                                            <img class="thumnail_image" src="{{$post->thumnail_image_path}}">
                                         </div>
                                     </div>
                                 </th>

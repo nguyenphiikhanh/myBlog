@@ -59,8 +59,10 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" href="{{route('category.edit',['id' => $category->id])}}">Sửa</a>
-                                            <a class="dropdown-item" href="#">Xoá</a>
+                                            <a class="dropdown-item" href="{{route('category.edit',['id' => $category->id])}}">Sửa danh mục</a>
+                                            <a class="dropdown-item action_delete"
+                                            data-url="{{route('category.delete',['id' => $category->id])}}"
+                                            href="">Xoá danh mục</a>
                                         </div>
                                     </div>
                                 </td>
@@ -81,4 +83,9 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+    <script src="{{asset('vendor/sweetAlert/sweetalert2@11.js')}}"></script>
+    <script src="{{asset('JsModel/deleteCate.js')}}"></script>
 @endsection

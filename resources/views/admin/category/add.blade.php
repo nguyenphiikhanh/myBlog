@@ -33,9 +33,11 @@
 
                         <div class="form-group">
                             <label for="exampleInputEmail1">Nội dung danh mục</label>
-
+                            @error('category_content')
+                            <div style="padding: 2px 5px;" class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <textarea name="category_content" rows="3" placeholder="Nhập mô tả danh mục"
-                            class="form-control"></textarea>
+                            class="form-control @error('name') is-invalid @enderror"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Thêm</button>
                     </form>

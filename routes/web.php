@@ -50,14 +50,19 @@ Route::prefix('/admin')->group(function () {    //Admin Dashboard
             'uses' => 'CategoryPostController@store'
         ]);
 
-        Route::get('/edit/danh-muc-PK_M{id}', [
+        Route::get('/sua-danh-muc-PK_M{id}', [
             'as' => 'category.edit',
             'uses' => 'CategoryPostController@edit'
         ]);
 
-        Route::post('/update/danh-muc-PK_M{id}', [
+        Route::post('/sua-danh-muc-PK_M{id}', [
             'as' => 'category.update',
             'uses' => 'CategoryPostController@update'
+        ]);
+
+        Route::get('/delete/danh-muc-PK_M{id}', [
+            'as' => 'category.delete',
+            'uses' => 'CategoryPostController@destroy'
         ]);
 
         // delete danh muc lam sau khi xong module post

@@ -26,6 +26,7 @@ class CategoryRequest extends FormRequest
         return [
             //
             'name' => 'bail|required|unique:categories|max:80',
+            'category_content' => "required"
         ];
     }
 
@@ -35,6 +36,8 @@ class CategoryRequest extends FormRequest
         'name.required' => 'Tên danh mục không được để trống.',
         'name.unique' => 'Danh mục đã tồn tại.',
         'name.max' => 'Tên danh mục không vượt quá 80 kí tự.',
+        'category_content.required' => 'Nội dung danh mục không được để trống.',
+
     ];
 }
 }
