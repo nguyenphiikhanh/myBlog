@@ -15,8 +15,12 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
+
+    public function posts(){
+        return $this->hasMany(Post::class,'user_id','id');
+    }
+    protected $guarded = [
+        'avatar_image_path'
     ];
 
     /**

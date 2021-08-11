@@ -1,15 +1,12 @@
 @extends('admin.dashboard.layouts.admin')
 
 @section('title')
-<title>Danh sách bài viết</title>
-@endsection
-
-@section('css')
+<title>Danh sách thành viên</title>
 @endsection
 
 @section('content')
 
-@include('admin.dashboard.partials.content-header',['key'=>'Danh sách bài viết'])
+@include('admin.dashboard.partials.content-header',['key'=>'Danh sách thành viên trên blog'])
 <!-- Page content -->
 <div class="container-fluid mt--6">
     <div class="row">
@@ -17,29 +14,28 @@
             <div class="card">
                 <!-- Card header -->
                 <div class="card-header border-0">
-                    <h3 class="mb-0">Danh sách bài viết trên blog</h3>
+                    <h3 class="mb-0">Danh sách thành viên</h3>
                 </div>
 
                 <div class="table-responsive">
                     <table class="table align-items-center table-flush">
-                            
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col" class="sort" data-sort="name">#</th>
-                                <th scope="col" class="sort" data-sort="name">Tên bài viết</th>
-                                <th scope="col" class="sort" data-sort="name">Danh mục</th>
-                                <th scope="col" class="sort" data-sort="budget">Lượt xem</th>
+                                <th scope="col" class="sort" data-sort="name">Username</th>
+                                <th scope="col" class="sort" data-sort="name">Tên</th>
+                                <th scope="col" class="sort" data-sort="name">Vai trò</th>
+                                <th scope="col" class="sort" data-sort="budget">Số bài viết trên blog</th>
                                 <th scope="col">Tuỳ chọn</th>
                             </tr>
                         </thead>
-                        @foreach ($posts as $post)
                         <tbody class="list">
-
+                            @foreach ($users as $user)
                             <tr>
                                 <th scope="row">
                                     <div class="media align-items-center">
                                         <div class="media-body">
-                                            <span class="name mb-0 text-sm">P{{$post->id}}T</span>
+                                            <span class="name mb-0 text-sm">U#0{{$user->id}}</span>
                                         </div>
                                     </div>
                                 </th>
@@ -47,7 +43,7 @@
                                 <th scope="row">
                                     <div class="media align-items-center">
                                         <div class="media-body">
-                                            <span class="name mb-0 text-sm"><strong>{{$post->name}}</strong></span>
+                                            <span class="name mb-0 text-sm">{{$user->username}}</span>
                                         </div>
                                     </div>
                                 </th>
@@ -55,12 +51,20 @@
                                 <th scope="row">
                                     <div class="media align-items-center">
                                         <div class="media-body">
-                                            <span class="name mb-0 text-sm">{{$post->category->name}}</span>
+                                            <span class="name mb-0 text-sm">{{$user->name}}</span>
+                                        </div>
+                                    </div>
+                                </th>
+
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <div class="media-body">
+                                            <span class="name mb-0 text-sm">{{$user->role_on_blog=="admin"?"Admin":"Thành viên"}}</span>
                                         </div>
                                     </div>
                                 </th>
                                 <td class="budget">
-                                    {{$post->view_count}} lượt xem
+                                    {{$user->posts()->count()}} bài viết
                                 </td>
                                 <td>
                                     <div class="dropdown">
@@ -69,9 +73,16 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" href="#">Xem bài viêt</a>
-                                            <a class="dropdown-item" href="{{route('posts.edit',['id'=>$post->id])}}">Sửa bài viết</a>
-                                            <a class="dropdown-item action_delete" data-url="{{route('posts.delete',['id'=>$post->id])}}" href="">Xoá bài viết</a>
+                                            @if ($user->role_on_blog == "content_writer")
+                                            <a class="dropdown-item" href="">Set quyền Admin</a>
+                                            @elseif ($user->role_on_blog == "admin")
+                                            <a class="dropdown-item" href="">Thu hồi quyền</a>
+                                            @endif
+
+                                            <a class="dropdown-item" href="">Đặt lại mật khẩu</a>
+                                            <a class="dropdown-item action_delete"
+                                            data-url=""
+                                            href="">Xoá thành viên</a>
                                         </div>
                                     </div>
                                 </td>
@@ -79,13 +90,14 @@
                                 </td>
                             </tr>
 
+                            @endforeach
+
                         </tbody>
-                        @endforeach
                     </table>
                 </div>
                 <!-- Card footer -->
                 <div class="card-footer py-4">
-                    {{$posts->links()}}
+                    {{$users->links()}}
                 </div>
             </div>
         </div>
@@ -95,5 +107,5 @@
 
 @section('js')
     <script src="{{asset('vendor/sweetAlert/sweetalert2@11.js')}}"></script>
-    <script src="{{asset('JsModel/deletePost.js')}}"></script>
+    <script src="{{asset('JsModel/deleteTag.js')}}"></script>
 @endsection

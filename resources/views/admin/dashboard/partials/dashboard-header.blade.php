@@ -6,9 +6,8 @@
               <div class="col-lg-6 col-7">
                 <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                   <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                    <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                    <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Trang chủ</li>
+                    <li class="breadcrumb-item"><a href="{{route('dashboard.index')}}"><i class="fas fa-home"></i></a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
                   </ol>
                 </nav>
               </div>
@@ -22,7 +21,7 @@
                     <div class="row">
                       <div class="col">
                         <h5 class="card-title text-uppercase text-muted mb-0">Bài viết trên Blog</h5>
-                        <span class="h2 font-weight-bold mb-0">350,897</span>
+                        <span class="h2 font-weight-bold mb-0">{{$posts->count()}}</span>
                         <span class="text-nowrap"> bài viết</span>
                       </div>
                       <div class="col-auto">
@@ -41,7 +40,7 @@
                     <div class="row">
                       <div class="col">
                         <h5 class="card-title text-uppercase text-muted mb-0">Thành viên trên blog</h5>
-                        <span class="h2 font-weight-bold mb-0">2,356</span>
+                        <span class="h2 font-weight-bold mb-0">{{$users->count()}}</span>
                         <span class="text-nowrap"> thành viên</span>
                       </div>
                       <div class="col-auto">
@@ -60,7 +59,7 @@
                     <div class="row">
                       <div class="col">
                         <h5 class="card-title text-uppercase text-muted mb-0">Danh mục bài viết</h5>
-                        <span class="h2 font-weight-bold mb-0">924</span>
+                        <span class="h2 font-weight-bold mb-0">{{$categories->count()}}</span>
                         <span class="text-nowrap"> danh mục</span>
                       </div>
                       <div class="col-auto">
@@ -79,7 +78,7 @@
                     <div class="row">
                       <div class="col">
                         <h5 class="card-title text-uppercase text-muted mb-0">Lượt xem trên Blog</h5>
-                        <span class="h2 font-weight-bold mb-0">49,65%</span>
+                        <span class="h2 font-weight-bold mb-0">{{$view}}</span>
                         <span class="text-nowrap"> Lượt xem</span>
                       </div>
                       <div class="col-auto">

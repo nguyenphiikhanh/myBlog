@@ -129,4 +129,19 @@ Route::prefix('/admin')->group(function () {    //Admin Dashboard
         'uses' => 'PostController@index'
     ]);
 
+    Route::get('/dang-ky-thanh-vien-moi', [  // user
+        'as' => 'user.create',
+        'uses' => 'UserController@create'
+    ]);
+
+    Route::post('/dang-ky-thanh-vien-moi', [  // user
+        'as' => 'user.store',
+        'uses' => 'UserController@store'
+    ]);
+
+    Route::get('/user-list', [  // user
+        'as' => 'user.list',
+        'uses' => 'UserController@index'
+    ]);
+
 });

@@ -15,7 +15,7 @@ class AddRoleAndAvtColUserTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->string('avatar_image_path');
+            $table->string('avatar_image_path')->nullable();
             $table->string('role_on_blog')->default('content_writer');
 
         });
