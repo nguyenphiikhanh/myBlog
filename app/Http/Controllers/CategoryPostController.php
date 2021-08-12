@@ -6,6 +6,8 @@ use App\Category;
 use App\Http\Requests\CategoryRequest;
 use App\Traits\DeleteModelTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class CategoryPostController extends Controller
 {
@@ -15,18 +17,18 @@ class CategoryPostController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     private $category;
+    private $category;
 
-     public function __construct(Category $category)
-     {
-         $this->category = $category;
-     }
+    public function __construct(Category $category)
+    {
+        $this->category = $category;
+    }
 
     public function index()
     {
         //
         $categories = Category::latest()->paginate(7);
-        return view('admin.category.index',compact('categories'));
+        return view('admin.category.index', compact('categories'));
     }
 
     /**
@@ -51,7 +53,7 @@ class CategoryPostController extends Controller
         //
         Category::create([
             'name' => $request->name,
-            'category_content' =>$request->category_content
+            'category_content' => $request->category_content
         ]);
 
         return redirect()->route('category.index');
@@ -78,7 +80,7 @@ class CategoryPostController extends Controller
     {
         //
         $category = Category::find($id);
-        return view('admin.category.edit',compact('category'));
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -94,7 +96,7 @@ class CategoryPostController extends Controller
         $category = Category::find($id);
         $category->update([
             'name' => $request->name,
-            'category_content' =>$request->category_content
+            'category_content' => $request->category_content
         ]);
         return redirect()->route('category.index');
     }
@@ -110,13 +112,20 @@ class CategoryPostController extends Controller
     public function destroy($id)
     {
         //
-        $category = $this->category->find($id);
-        $posts = $category->posts;
-        foreach($posts as $post){
-            $post->tags()->detach();
-            unlink('.'.$post->thumnail_image_path);
+        try {
+            DB::beginTransaction();
+            $category = $this->category->find($id);
+            $posts = $category->posts;
+            foreach ($posts as $post) {
+                $post->tags()->detach();
+                unlink('.' . $post->thumnail_image_path);
+            }
+            $category->posts()->delete();
+            DB::commit();
+            return $this->deleteModelTrait($id, $this->category);
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            Log::error("Lỗi : ".$exception->getMessage().".Line ".$exception->getLine());
         }
-        $category->posts()->delete();
-        return $this->deleteModelTrait($id,$this->category);
     }
 }

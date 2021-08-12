@@ -1,4 +1,10 @@
-    <!-- Topnav -->
+@php
+  use App\User;
+  $userId = Auth::id();
+  $userInfo = User::find($userId);
+@endphp
+
+<!-- Topnav -->
     <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
         <div class="container-fluid">
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -30,7 +36,7 @@
                       <img alt="Image placeholder" src="{{asset('admin-nguyenphikhanh.net/assets/img/theme/team-4.jpg')}}">
                     </span>
                     <div class="media-body  ml-2  d-none d-lg-block">
-                      <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
+                      <span class="mb-0 text-sm  font-weight-bold">{{$userInfo->name}}</span>
                     </div>
                   </div>
                 </a>
@@ -38,14 +44,14 @@
                   <div class="dropdown-header noti-title">
                     <h6 class="text-overflow m-0">Welcome!</h6>
                   </div>
-                  <a href="#!" class="dropdown-item">
+                  <a href="{{route('user.edit',['id'=>$userId])}}" class="dropdown-item">
                     <i class="ni ni-single-02"></i>
-                    <span>My profile</span>
+                    <span>Chỉnh sửa thông tin</span>
                   </a>
                   <div class="dropdown-divider"></div>
                   <a href="#!" class="dropdown-item">
                     <i class="ni ni-button-power"></i>
-                    <span>Logout</span>
+                    <span>Đăng xuất</span>
                   </a>
                 </div>
               </li>

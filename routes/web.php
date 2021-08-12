@@ -144,4 +144,9 @@ Route::prefix('/admin')->group(function () {    //Admin Dashboard
         'uses' => 'UserController@index'
     ]);
 
+    Route::get('/sua-thong-tin-U0{id}ER', [  // user
+        'as' => 'user.edit',
+        'uses' => 'UserController@edit'
+    ]);
+
 });

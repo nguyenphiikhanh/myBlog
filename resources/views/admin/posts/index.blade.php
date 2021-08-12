@@ -9,7 +9,7 @@
 
 @section('content')
 
-@include('admin.dashboard.partials.content-header',['key'=>'Danh sách bài viết'])
+@include('admin.dashboard.partials.content-header',['key'=>'Chỉnh sửa thông tin'])
 <!-- Page content -->
 <div class="container-fluid mt--6">
     <div class="row">
@@ -29,6 +29,7 @@
                                 <th scope="col" class="sort" data-sort="name">Tên bài viết</th>
                                 <th scope="col" class="sort" data-sort="name">Danh mục</th>
                                 <th scope="col" class="sort" data-sort="budget">Lượt xem</th>
+                                <th scope="col" class="sort" data-sort="budget">Tác giả</th>
                                 <th scope="col">Tuỳ chọn</th>
                             </tr>
                         </thead>
@@ -62,6 +63,14 @@
                                 <td class="budget">
                                     {{$post->view_count}} lượt xem
                                 </td>
+
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <div class="media-body">
+                                            <span class="name mb-0 text-sm">{{$post->user->name}}</span>
+                                        </div>
+                                    </div>
+                                </th>
                                 <td>
                                     <div class="dropdown">
                                         <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
