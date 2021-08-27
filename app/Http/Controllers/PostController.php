@@ -112,7 +112,6 @@ class PostController extends Controller
         $post = Post::find($id);
         $post_tags = $post->tags;
         $post_category = $post->category;
-        // dd($post_category->id);
         return view('admin.posts.edit',compact('categories','tags','post','post_tags','post_category'));
     }
 
@@ -169,10 +168,6 @@ class PostController extends Controller
     use DeleteModelTrait;
     public function destroy($id)
     {
-        //
-        $post = $this->post->find($id);
-        $post->tags()->detach();
-        unlink('.'.$post->thumnail_image_path);
         return $this->deleteModelTrait($id,$this->post);
     }
 }

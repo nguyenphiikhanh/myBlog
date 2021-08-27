@@ -9,7 +9,7 @@
 
 @section('content')
 @include('admin.dashboard.partials.content-header',['key'=>'Chỉnh sửa thông tin'])
-<div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url({{asset('admin-nguyenphikhanh.net/assets/img/theme/profile-cover.jpg')}}); background-size: cover; background-position: center top;">
+<div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url({{$user->avatar_image_path}}); background-size: cover; background-position: center top;">
       <!-- Mask -->
       <span class="mask bg-gradient-default opacity-8"></span>
       <!-- Header container -->

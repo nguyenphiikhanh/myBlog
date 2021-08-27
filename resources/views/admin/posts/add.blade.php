@@ -33,7 +33,7 @@
                                 <div style="padding: 2px 5px;" class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                                 <textarea name="name" placeholder="Tiêu đề bài viêt"
-                                    class="form-control @error('name') is-invalid @enderror" rows="3"></textarea>
+                                    class="form-control @error('name') is-invalid @enderror" rows="3">{{old('name')}}</textarea>
                             </div>
 
                             <div class="form-group">
@@ -53,7 +53,7 @@
                                     placeholder="--Chọn một danh mục--">
                                     <option value=""></option>
                                     @foreach ($categories as $category)
-                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                    <option {{old('category_id')?'selected':''}} value="{{$category->id}}">{{$category->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -69,7 +69,7 @@
                                         <option value=""></option>
 
                                         @foreach ($tags as $tag)
-                                        <option value="{{$tag->id}}">{{$tag->name}}</option>
+                                        <option {{old('tags')?'selected':''}} value="{{$tag->id}}">{{$tag->name}}</option>
                                         @endforeach
 
 
@@ -83,7 +83,7 @@
                                 @enderror
                                 <textarea id="content_editor" name="content" placeholder="Nội dung..."
                                     class="form-control @error('content') is-invalid @enderror content-editor"
-                                    rows="30"></textarea>
+                                    rows="30">{{old('content')}}</textarea>
                             </div>
                         </div>
 

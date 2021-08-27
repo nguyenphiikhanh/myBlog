@@ -27,6 +27,7 @@ class PostUpdateRequest extends FormRequest
             //
             'name' => "bail|required|max:300|min:10",
             'category_id' => "required",
+            'content' => "required",
         ];
     }
 
@@ -37,6 +38,7 @@ class PostUpdateRequest extends FormRequest
             'name.max' => 'không vượt quá 200 kí tự.',
             'name.min' => 'Tiêu đề bài viết không được ít hơn 10 kí tự',
             "category_id.required" => 'Vui lòng chọn một danh mục',
+            "content.required" => 'Nội dung bài viết không được để trống',
         ];
     }
 }
