@@ -3,6 +3,9 @@
 namespace App\Observers;
 
 use App\Category;
+use App\Post;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class CategoryObserver
 {
@@ -26,6 +29,30 @@ class CategoryObserver
     public function updated(Category $category)
     {
         //
+    }
+
+        /**
+     * Handle the category "deleted" event.
+     *
+     * @param  \App\Category  $category
+     * @return void
+     */
+    public function deleting(Category $category)
+    {
+        try {
+            DB::beginTransaction();
+            // Post::delete($category->posts);
+
+            foreach($category->posts as $post){
+                $postToDel = new PostObserver();
+                $postToDel->deleting($post);
+            }
+            $category->posts()->delete();
+            DB::commit();
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            Log::error("Lỗi : ".$exception->getMessage().".Line ".$exception->getLine());
+        }
     }
 
     /**

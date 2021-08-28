@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Category;
+use App\Observers\CategoryObserver;
 use App\Observers\PostObserver;
 use App\Post;
 use Illuminate\Support\Facades\Schema;
@@ -29,5 +31,6 @@ class AppServiceProvider extends ServiceProvider
         //
         Schema::defaultStringLength(191);
         Post::observe(PostObserver::class);
+        Category::observe(CategoryObserver::class);
     }
 }

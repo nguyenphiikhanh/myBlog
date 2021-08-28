@@ -111,21 +111,6 @@ class CategoryPostController extends Controller
     use DeleteModelTrait;
     public function destroy($id)
     {
-        //
-        try {
-            DB::beginTransaction();
-            $category = $this->category->find($id);
-            $posts = $category->posts;
-            foreach ($posts as $post) {
-                $post->tags()->detach();
-                unlink('.' . $post->thumnail_image_path);
-            }
-            $category->posts()->delete();
-            DB::commit();
-            return $this->deleteModelTrait($id, $this->category);
-        } catch (\Exception $exception) {
-            DB::rollBack();
-            Log::error("Lỗi : ".$exception->getMessage().".Line ".$exception->getLine());
-        }
+        return $this->deleteModelTrait($id, $this->category);
     }
 }
