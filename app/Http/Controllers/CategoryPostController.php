@@ -6,8 +6,6 @@ use App\Category;
 use App\Http\Requests\CategoryRequest;
 use App\Traits\DeleteModelTrait;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 
 class CategoryPostController extends Controller
 {

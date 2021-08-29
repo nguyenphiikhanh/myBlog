@@ -149,4 +149,9 @@ Route::prefix('/admin')->group(function () {    //Admin Dashboard
         'uses' => 'UserController@edit'
     ]);
 
+    Route::post('/sua-thong-tin-U0{id}ER', [  // user
+        'as' => 'user.update',
+        'uses' => 'UserController@update'
+    ]);
+
 });

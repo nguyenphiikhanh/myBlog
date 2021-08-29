@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RegUserRequest;
+use App\Traits\ImageUpload;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,6 @@ class UserController extends Controller
     public function create()
     {
         //
-        return view('admin.users.add');
     }
 
     /**
@@ -47,17 +47,6 @@ class UserController extends Controller
     public function store(RegUserRequest $request)
     {
         //
-        $userCreate = [
-            'username' => $request->username,
-            'password' => bcrypt($request->password),
-            'name' => $request->name,
-            'email'=> $request->email,
-        ];
-        // dd($userCreate);
-        $this->user->create($userCreate);
-        echo "<script>alert('Thêm thành viên thành công')</script>";
-
-        return redirect()->route('user.list');
     }
 
     /**
@@ -91,9 +80,23 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    use ImageUpload;
     public function update(Request $request, $id)
     {
         //
+        $userUpdate = [
+            'email' => $request->email,
+            'name' => $request->name,
+            'address' => $request->address,
+            'phone_number' =>$request->phone_number,
+            'about' => $request->about
+        ];
+        
+        $user = $this->user->find($id);
+
+        $user->update($userUpdate);
+
+        return redirect()->route('user.edit',['id' => $user->id]);
     }
 
     /**

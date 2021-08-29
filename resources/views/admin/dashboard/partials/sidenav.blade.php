@@ -47,23 +47,6 @@
                 <span class="nav-link-text">Danh mục bài viết</span>
               </a>
             </li>
-          
-            {{-- These module is admin-permissions --}}
-            <li class="nav-item">
-              <a class="nav-link" href="{{route('user.create')}}">
-                <i class="ni ni-circle-08 text-pink"></i>
-                <span class="nav-link-text">Đăng ký thành viên mới</span>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="{{route('user.list')}}">
-                <i class="ni ni-single-02 text-yellow"></i>
-                <span class="nav-link-text">Danh sách thành viên</span>
-              </a>
-            </li>
-
-            {{-- These module is admin-permissions --}}
           </ul>
         </div>
       </div>
