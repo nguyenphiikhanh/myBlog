@@ -1,3 +1,9 @@
+@php
+    if(!Auth::check()){
+        echo url('/dang-nhap-quan-ly-noi-dung');
+    }
+@endphp
+
 <!DOCTYPE html>
 <html>
 
