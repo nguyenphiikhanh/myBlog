@@ -13,11 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
 Route::prefix('/dang-nhap-quan-ly-noi-dung')->group(function () {
     Route::get('/', [
         'as' => 'admin.login',
@@ -144,3 +139,6 @@ Route::prefix('/admin')->group(function () {    //Admin Dashboard
     ])->middleware('checkLogin');
 
 });
+
+ // in blog
+Route::get('/', 'BlogController@index')->name('page.index');
