@@ -14,16 +14,9 @@
                             <nav>
                                 <ul id="navigation">
                                     <li><a href="index.html">Trang chủ</a></li>
-                                    <li><a href="about.html">Giới thiệu</a></li>
-                                    <li><a href="blog.html">Blog <i class="fas fa-caret-down"></i></a>
-                                        <ul class="submenu">
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="blog_details.html">Blog Details</a></li>
-                                            <li><a href="elements.html">Elements</a></li>
-                                            <li><a href="product_details.html">Product Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="about.html">Chuyện lập trình</a></li>
+                                    <li><a href="blog.html">Chuyện cuộc sống</a></li>
+                                    <li><a href="contact.html">Mình là ai?</a></li>
                                 </ul>
                             </nav>
                         </div>
