@@ -116,6 +116,8 @@
 
   <!-- Template Main JS File -->
   <script src="{{asset('nguyenphikhanh.net_template/assets2/js/main.js')}}"></script>
+
+  @yield('js')
 </body>
 
 </html>

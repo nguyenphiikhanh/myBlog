@@ -16,6 +16,7 @@
                                     <li><a href="index.html">Trang chủ</a></li>
                                     <li><a href="about.html">Chuyện lập trình</a></li>
                                     <li><a href="blog.html">Chuyện cuộc sống</a></li>
+                                    <li><a href="blog.html">Tips & Tricks</a></li>
                                     <li><a href="contact.html">Mình là ai?</a></li>
                                 </ul>
                             </nav>

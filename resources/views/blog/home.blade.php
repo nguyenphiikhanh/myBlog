@@ -34,7 +34,6 @@
                                         he earth it first without heaven in place seed it second morning saying.</p>
                                     <ul class="blog-info-link">
                                         <li><a href="javascript:void(0)"><i class="fa fa-list"></i>Danh mục</a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-clock-o"></i>Thời gian</a></li>
                                     </ul>
                                 </div>
                             </article>

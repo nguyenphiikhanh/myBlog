@@ -4,8 +4,7 @@
        <div class="col-lg-12">
         <nav aria-label="breadcrumb">
          <ol class="breadcrumb justify-content-center">
-           <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
-           <li class="breadcrumb-item"><a href="#">{{$name}}</a></li> 
+           <li class="breadcrumb-item"><a href="javascript:void(0)">{{$name}}</a></li> 
          </ol>
        </nav>
      </div>

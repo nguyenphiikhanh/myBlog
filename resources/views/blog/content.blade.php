@@ -23,7 +23,8 @@
                        all gathered us saying he our
                      </h2>
                      <ul class="blog-info-link mt-3 mb-4">
-                      <li><a href="#"><i class="fa fa-list"></i>Danh mục</a></li>
+                      <li><a href="javascript:void(0)"><i class="fa fa-list"></i>Danh mục</a></li>
+                      <li><a href="javascript:void(0)"><i class="fa fa-clock-o"></i>Thời gian</a></li>
                      </ul>
                      <p class="excert">
                        MCSE boot camps have its supporters and its detractors. Some people do not understand why you
@@ -68,12 +69,12 @@
 
                 </div>
 
-                <div class="blog-author">
+                <div style="margin-top: 30px;" class="blog-author">
                  <div class="media align-items-center">
                   <img src="{{asset('nguyenphikhanh.net_template/assets/img/blog/author.png')}}" alt="">
-                  <div class="media-body">
+                  <div class="media-body ml-3">
                    <a href="#">
-                    <h4>Author : Harvard milan</h4>
+                    <h1>Harvard milan - Tác giả</h1>
                   </a>
                   <p>Second divided from form fish beast made. Every of seas all gathered use saying you're, he
                   our dominion twon Second divided from</p>
@@ -81,117 +82,10 @@
                 </div>
                 </div>
                 <div class="comments-area">
-                 <h4>05 Comments</h4>
-                 <div class="comment-list">
-                  <div class="single-comment justify-content-between d-flex">
-                   <div class="user justify-content-between d-flex">
-                    <div class="thumb">
-                     <img src="{{asset('nguyenphikhanh.net_template/assets/img/blog/comment_1.png')}}" alt="">
-                   </div>
-                   <div class="desc">
-                     <p class="comment">
-                      Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                      Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                    </p>
-                    <div class="d-flex justify-content-between">
-                      <div class="d-flex align-items-center">
-                       <h5>
-                        <a href="#">Emilly Blunt</a>
-                      </h5>
-                      <p class="date">December 4, 2017 at 3:12 pm </p>
-                    </div>
-                    <div class="reply-btn">
-                     <a href="#" class="btn-reply text-uppercase">reply</a>
-                   </div>
-                 </div>
+                 <h4>Bạn muốn góp ý về bài viết của mình, hãy để lại bình luận phía dưới.</h4>
+                 <div class="fb-comments" data-href="http://localhost:8000/xem-bai-viet" data-width="560" data-numposts="3"></div>
                 </div>
-                </div>
-                </div>
-                </div>
-                <div class="comment-list">
-                  <div class="single-comment justify-content-between d-flex">
-                   <div class="user justify-content-between d-flex">
-                    <div class="thumb">
-                     <img src="{{asset('nguyenphikhanh.net_template/assets/img/blog/comment_2.png')}}" alt="">
-                   </div>
-                   <div class="desc">
-                     <p class="comment">
-                      Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                      Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                    </p>
-                    <div class="d-flex justify-content-between">
-                      <div class="d-flex align-items-center">
-                       <h5>
-                        <a href="#">Emilly Blunt</a>
-                      </h5>
-                      <p class="date">December 4, 2017 at 3:12 pm </p>
-                    </div>
-                    <div class="reply-btn">
-                     <a href="#" class="btn-reply text-uppercase">reply</a>
-                   </div>
-                 </div>
-                </div>
-                </div>
-                </div>
-                </div>
-                <div class="comment-list">
-                  <div class="single-comment justify-content-between d-flex">
-                   <div class="user justify-content-between d-flex">
-                    <div class="thumb">
-                     <img src="{{asset('nguyenphikhanh.net_template/assets/img/blog/comment_3.png')}}" alt="">
-                   </div>
-                   <div class="desc">
-                     <p class="comment">
-                      Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                      Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                    </p>
-                    <div class="d-flex justify-content-between">
-                      <div class="d-flex align-items-center">
-                       <h5>
-                        <a href="#">Emilly Blunt</a>
-                      </h5>
-                      <p class="date">December 4, 2017 at 3:12 pm </p>
-                    </div>
-                    <div class="reply-btn">
-                     <a href="#" class="btn-reply text-uppercase">reply</a>
-                   </div>
-                 </div>
-                </div>
-                </div>
-                </div>
-                </div>
-                </div>
-                <div class="comment-form">
-                 <h4>Leave a Reply</h4>
-                 <form class="form-contact comment_form" action="#" id="commentForm">
-                  <div class="row">
-                   <div class="col-12">
-                    <div class="form-group">
-                     <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9"
-                     placeholder="Write Comment"></textarea>
-                   </div>
-                 </div>
-                 <div class="col-sm-6">
-                  <div class="form-group">
-                   <input class="form-control" name="name" id="name" type="text" placeholder="Name">
-                 </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="form-group">
-                   <input class="form-control" name="email" id="email" type="email" placeholder="Email">
-                 </div>
-                </div>
-                <div class="col-12">
-                  <div class="form-group">
-                   <input class="form-control" name="website" id="website" type="text" placeholder="Website">
-                 </div>
-                </div>
-                </div>
-                <div class="form-group">
-                 <button type="submit" class="button button-contactForm btn_1 boxed-btn">Post Comment</button>
-                </div>
-                </form>
-                </div>
+
                 </div>
                     @include('blog.layouts.detail-sidebar')
                 </div>
@@ -200,5 +94,9 @@
         <!-- Blog Area End -->
     </main>
 
+@endsection
+
+@section('js')
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v11.0" nonce="BzaL6S9Y"></script>
 @endsection
 
