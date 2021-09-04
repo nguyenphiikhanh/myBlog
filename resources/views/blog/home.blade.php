@@ -8,6 +8,7 @@
 @section('content')
 @include('blog.layouts.intro')
     <main>
+        @include('blog.layouts.contenn-header',['name' => 'Trang chủ'])
         <!-- Hero Area End-->
         <!--? Blog Area Start-->
         <section class="blog_area section-padding">
@@ -32,7 +33,8 @@
                                         that
                                         he earth it first without heaven in place seed it second morning saying.</p>
                                     <ul class="blog-info-link">
-                                        <li><a href="#"><i class="fa fa-list"></i>Danh mục</a></li>
+                                        <li><a href="javascript:void(0)"><i class="fa fa-list"></i>Danh mục</a></li>
+                                        <li><a href="javascript:void(0)"><i class="fa fa-clock-o"></i>Thời gian</a></li>
                                     </ul>
                                 </div>
                             </article>

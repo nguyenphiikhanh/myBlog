@@ -142,3 +142,7 @@ Route::prefix('/admin')->group(function () {    //Admin Dashboard
 
  // in blog
 Route::get('/', 'BlogController@index')->name('page.index');
+
+Route::get('/xem-bai-viet', function () {
+    return view('blog.content');
+});
