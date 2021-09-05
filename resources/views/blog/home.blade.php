@@ -5,6 +5,32 @@
 <title>Nguyễn Phi Khánh-Programming and Life</title>
 @endsection
 
+@section('css')
+<style>
+    .thumnail_img{
+        width: 100%;
+        height: 365px;
+    }
+@media screen and (max-width: 600px) {
+    .thumnail_img{
+       height: 155px;
+    }
+
+}
+@media screen and (min-width: 600px) {
+    .thumnail_img{
+       height: 255px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .thumnail_img{
+       height: 345px;
+    }
+}
+</style>
+@endsection
+
 @section('content')
 @include('blog.layouts.intro')
     <main>
@@ -16,6 +42,28 @@
                 <div class="row">
                     <div class="col-lg-8 mb-5 mb-lg-0">
                         <div class="blog_left_sidebar">
+
+                            @foreach ($posts as $post)
+                            <article class="blog_item">
+                                <div class="blog_item_img">
+                                    <img class="card-img rounded-0 thumnail_img img-fluid" src="{{$post->thumnail_image_path}}" alt="Responsive image">
+                                    <a href="#" class="blog_item_date">
+                                        <p>{{\Carbon\Carbon::parse($post->created_at)->format('d')}}</p>
+                                        <h3>{{\Carbon\Carbon::parse($post->created_at)->format('M')}}</h3>    
+                                    </a>
+                                </div>
+                                <div class="blog_details">
+                                    <a class="d-inline-block" href="{{route('post.show',['slug'=>$post->slug])}}">
+                                        <h2 class="blog-head" style="color: #2d2d2d;">{{$post->name}}</h2>
+                                    </a>
+                                    <p>{{$post->description}}</p>
+                                    <ul class="blog-info-link">
+                                        <li><a href="javascript:void(0)"><i class="fa fa-list"></i>{{$post->category->name}}</a></li>
+                                    </ul>
+                                </div>
+                            </article>
+                            @endforeach
+
                             @for ($i = 1;$i <5;$i++)
                             <article class="blog_item">
                                 <div class="blog_item_img">

@@ -28,7 +28,8 @@ class PostRequest extends FormRequest
             'name' => "bail|required|unique:posts|max:300|min:10",
             'category_id' => "required",
             'thumnail_image_path' =>"required",
-            'content' =>"required"
+            'content' =>"required",
+            'description' => "required",
         ];
     }
 
@@ -42,6 +43,7 @@ class PostRequest extends FormRequest
             "category_id.required" => 'Vui lòng chọn một danh mục',
             'thumnail_image_path.required' =>"Vui lòng tải lên một hình ảnh.",
             "content.required" => "Nội dung bài viết không được để trống.",
+            "description.required" => "Mô tả hiển thị không được để trống.",
         ];
     }
 }

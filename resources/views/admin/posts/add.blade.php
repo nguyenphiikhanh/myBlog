@@ -85,6 +85,16 @@
                                     class="form-control @error('content') is-invalid @enderror content-editor"
                                     rows="30">{{old('content')}}</textarea>
                             </div>
+
+                            <div class="form-group">
+                                <label>Giới thiệu (hiển thị khi người xem chưa xem chi tiết)</label>
+                                @error('description')
+                                <div style="padding: 2px 5px;" class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                                <textarea name="description" placeholder="Nhập mô tả"
+                                    class="form-control @error('description') is-invalid @enderror"
+                                    rows="5"></textarea>
+                            </div>
                         </div>
 
                         <div class="d-flex justify-content-center">

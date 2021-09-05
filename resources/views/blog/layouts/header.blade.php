@@ -7,13 +7,13 @@
                     <div class="header-left d-flex align-items-center">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="index.html"><img src="{{asset('nguyenphikhanh.net_template/assets/img/logo/logo.png')}}" alt=""></a>
+                            <a href="{{route('page.index')}}"><img src="{{asset('nguyenphikhanh.net_template/assets/img/logo/logo.png')}}" alt=""></a>
                         </div>
                         <!-- Main-menu -->
                         <div class="main-menu  d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
-                                    <li><a href="index.html">Trang chủ</a></li>
+                                    <li><a href="{{route('page.index')}}">Trang chủ</a></li>
                                     <li><a href="about.html">Chuyện lập trình</a></li>
                                     <li><a href="blog.html">Chuyện cuộc sống</a></li>
                                     <li><a href="blog.html">Tips & Tricks</a></li>
@@ -27,7 +27,6 @@
                         <div class="header-social d-none d-md-block">
                             <a href="#"><i class="fab fa-github"></i></a>
                             <a href="https://bit.ly/sai4ull"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
                         </div>
 
                     </div>

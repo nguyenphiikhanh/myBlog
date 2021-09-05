@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -14,7 +15,10 @@ class BlogController extends Controller
     public function index()
     {
         //
-        return view('blog.home');
+        $paginations = 5;
+        $posts = Post::latest()->paginate($paginations);
+        // dd($post);
+        return view('blog.home',compact('posts'));
     }
 
     /**

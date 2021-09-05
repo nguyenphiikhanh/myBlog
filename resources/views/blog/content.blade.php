@@ -2,7 +2,7 @@
 
 
 @section('title')
-<title>Nội dung bài viết</title>
+<title>{{$post->name}}</title>
 @endsection
 
 @section('content')
@@ -19,43 +19,15 @@
                       <img class="img-fluid" src="{{asset('nguyenphikhanh.net_template/assets/img/blog/single_blog_1.png')}}" alt="">
                     </div>
                     <div class="blog_details">
-                      <h2 style="color: #2d2d2d;">Second divided from form fish beast made every of seas
-                       all gathered us saying he our
+                      <h2 style="color: #2d2d2d;">{{$post->name}}
                      </h2>
                      <ul class="blog-info-link mt-3 mb-4">
-                      <li><a href="javascript:void(0)"><i class="fa fa-list"></i>Danh mục</a></li>
-                      <li><a href="javascript:void(0)"><i class="fa fa-clock-o"></i>Thời gian</a></li>
+                      <li><a href="javascript:void(0)"><i class="fa fa-list"></i>{{$post->category->name}}</a></li>
+                      <li><a href="javascript:void(0)"><i class="fa fa-clock-o"></i>{{ \Carbon\Carbon::parse($post->created_at)->format('d/m/Y')}}</a></li>
                      </ul>
-                     <p class="excert">
-                       MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-                       should have to spend money on boot camp when you can get the MCSE study materials yourself at a
-                       fraction of the camp price. However, who has the willpower
-                     </p>
-                     <p>
-                       MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-                       should have to spend money on boot camp when you can get the MCSE study materials yourself at a
-                       fraction of the camp price. However, who has the willpower to actually sit through a
-                       self-imposed MCSE training. who has the willpower to actually
-                     </p>
-                     <div class="quote-wrapper">
-                       <div class="quotes">
-                        MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-                        should have to spend money on boot camp when you can get the MCSE study materials yourself at
-                        a fraction of the camp price. However, who has the willpower to actually sit through a
-                        self-imposed MCSE training.
-                      </div>
-                    </div>
-                    <p>
-                     MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-                     should have to spend money on boot camp when you can get the MCSE study materials yourself at a
-                     fraction of the camp price. However, who has the willpower
-                   </p>
-                   <p>
-                     MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-                     should have to spend money on boot camp when you can get the MCSE study materials yourself at a
-                     fraction of the camp price. However, who has the willpower to actually sit through a
-                     self-imposed MCSE training. who has the willpower to actually
-                   </p>
+                     <div class="col-md-12">
+                       {!!$post->content!!}
+                     </div>
                  </div>
                 </div>
 
@@ -72,7 +44,7 @@
                 <div style="margin-top: 30px;" class="blog-author">
                  <div class="media align-items-center">
                   <img src="{{asset('nguyenphikhanh.net_template/assets/img/blog/author.png')}}" alt="">
-                  <div class="media-body ml-3">
+                  <div class="media-body ml-4">
                    <a href="#">
                     <h1>Harvard milan - Tác giả</h1>
                   </a>

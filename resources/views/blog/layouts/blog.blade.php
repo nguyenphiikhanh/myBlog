@@ -36,6 +36,7 @@
   <!-- Template Main CSS File -->
   <link href="{{asset('nguyenphikhanh.net_template/assets2/css/style.css')}}" rel="stylesheet">
 
+  @yield('css')
 </head>
 
 <body class="full-wrapper">

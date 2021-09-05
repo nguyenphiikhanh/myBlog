@@ -68,6 +68,7 @@ class PostController extends Controller
                 'category_id' => $request->category_id,
                 'content' => $request->content,
                 'slug' => Str::slug($request->name),
+                'description' => $request->description,
             ];
             $imageUpload = $this->imageUpload($request, 'thumnail_image_path', "postImage");
 
@@ -93,9 +94,12 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
         //
+        $post = Post::where('slug',$slug)->first();
+        // dd($post->category->name);
+        return view('blog.content',compact('post'));
     }
 
     /**
@@ -133,6 +137,7 @@ class PostController extends Controller
                 'category_id' => $request->category_id,
                 'content' => $request->content,
                 'slug' => Str::slug($request->name),
+                'description' => $request->description,
             ];
             $imageUpload = $this->imageUpload($request, 'thumnail_image_path', "postImage");
 
