@@ -50,7 +50,7 @@
                                     </div>
                                 </th>
                                 <td class="budget">
-                                    2500 bài viết
+                                    {{$category->posts->count()}} bài viết
                                 </td>
                                 <td>
                                     <div class="dropdown">

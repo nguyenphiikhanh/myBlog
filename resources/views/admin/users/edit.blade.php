@@ -98,6 +98,27 @@
                       </div>
                     </div>
                   </div>
+
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-city">Facebook link</label>
+                        <input type="text" name="facebook_link"
+                        class="form-control" placeholder="Liên kết đến Facebook profile" value="{{$user->facebook_link}}">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-city">Github link</label>
+                        <input type="text" name="github_link"
+                        class="form-control" placeholder="Liên kết đến Github profile" value="{{$user->github_link}}">
+                      </div>
+                    </div>
+                  </div>
+                  
                 </div>
                 <hr class="my-4" />
                 <!-- Description -->

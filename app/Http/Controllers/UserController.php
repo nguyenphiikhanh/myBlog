@@ -89,7 +89,9 @@ class UserController extends Controller
             'name' => $request->name,
             'address' => $request->address,
             'phone_number' =>$request->phone_number,
-            'about' => $request->about
+            'about' => $request->about,
+            'github_link' => $request->github_link,
+            'facebook_link' => $request->facebook_link,
         ];
         
         $user = $this->user->find($id);

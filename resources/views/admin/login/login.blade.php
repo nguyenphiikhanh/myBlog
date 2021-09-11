@@ -118,11 +118,7 @@
                             <div class="text-center">
                                 <button class="btn btn-primary my-4">Đăng nhập</button>
                             </div>
-                            <div class="text-center">
-                                <span class="text-muted text-center">Nếu bạn quên mật khẩu,hoặc chưa có tài khoản vui
-                                    lòng<a href="https://www.facebook.com/nguyenphiikhanh" class="font-weight-bold ml-1"
-                                        target="_blank">liên hệ với mình</a></span>
-                            </div>
+
 
                         </form>
                     </div>

@@ -15,7 +15,7 @@ class BlogController extends Controller
     public function index()
     {
         //
-        $paginations = 5;
+        $paginations = 1;
         $posts = Post::latest()->paginate($paginations);
         // dd($post);
         return view('blog.home',compact('posts'));

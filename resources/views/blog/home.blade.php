@@ -47,7 +47,7 @@
                             <article class="blog_item">
                                 <div class="blog_item_img">
                                     <img class="card-img rounded-0 thumnail_img img-fluid" src="{{$post->thumnail_image_path}}" alt="Responsive image">
-                                    <a href="#" class="blog_item_date">
+                                    <a href="javascript:void(0)" class="blog_item_date">
                                         <p>{{\Carbon\Carbon::parse($post->created_at)->format('d')}}</p>
                                         <h3>{{\Carbon\Carbon::parse($post->created_at)->format('M')}}</h3>    
                                     </a>

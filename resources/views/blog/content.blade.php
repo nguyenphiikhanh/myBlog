@@ -43,19 +43,20 @@
 
                 <div style="margin-top: 30px;" class="blog-author">
                  <div class="media align-items-center">
-                  <img src="{{asset('nguyenphikhanh.net_template/assets/img/blog/author.png')}}" alt="">
+                  <div class="col-xs-3">
+                    <img width="100" height="100" src="{{$post->user->avatar_image_path}}" class="rounded-circle">
+                </div>
                   <div class="media-body ml-4">
                    <a href="#">
-                    <h1>Harvard milan - Tác giả</h1>
+                    <h1>{{$post->user->name}} - Tác giả</h1>
                   </a>
-                  <p>Second divided from form fish beast made. Every of seas all gathered use saying you're, he
-                  our dominion twon Second divided from</p>
+                  <p>{{$post->user->about}}</p>
                 </div>
                 </div>
                 </div>
                 <div class="comments-area">
                  <h4>Bạn muốn góp ý về bài viết của mình, hãy để lại bình luận phía dưới.</h4>
-                 <div class="fb-comments" data-href="http://localhost:8000/xem-bai-viet" data-width="560" data-numposts="3"></div>
+                 <div class="fb-comments" data-href="{{route('post.show',['slug' => $post->slug])}}" data-width="" data-numposts="5"></div>
                 </div>
 
                 </div>
@@ -69,6 +70,7 @@
 @endsection
 
 @section('js')
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v11.0" nonce="BzaL6S9Y"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v11.0&appId=375223127380409&autoLogAppEvents=1" 
+nonce="pj5UUEZB"></script>
 @endsection
 
