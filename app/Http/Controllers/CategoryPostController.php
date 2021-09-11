@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Http\Requests\CategoryRequest;
+use App\Post;
 use App\Traits\DeleteModelTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CategoryPostController extends Controller
 {
@@ -51,7 +53,8 @@ class CategoryPostController extends Controller
         //
         Category::create([
             'name' => $request->name,
-            'category_content' => $request->category_content
+            'category_content' => $request->category_content,
+            'slug' => Str::slug($request->name),
         ]);
 
         return redirect()->route('category.index');
@@ -63,9 +66,17 @@ class CategoryPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
         //
+        $paginations = 1;
+
+        $cate = Category::where('slug',$slug)->first();
+        $posts = $cate->posts()->orderBy('id', 'desc')->paginate($paginations);
+
+        $categories = Category::latest()->get();
+        // dd($categories);
+        return view('blog.getpost-by-category',compact('cate','categories','posts'));
     }
 
     /**
@@ -94,7 +105,8 @@ class CategoryPostController extends Controller
         $category = Category::find($id);
         $category->update([
             'name' => $request->name,
-            'category_content' => $request->category_content
+            'category_content' => $request->category_content,
+            'slug' => Str::slug($request->name),
         ]);
         return redirect()->route('category.index');
     }

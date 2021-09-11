@@ -2,7 +2,7 @@
 
 
 @section('title')
-<title>Nguyễn Phi Khánh-Programming and Life</title>
+<title>Danh mục-{{$cate->name}}</title>
 @endsection
 
 @section('css')
@@ -10,13 +10,22 @@
 @endsection
 
 @section('content')
-@include('blog.layouts.intro')
+{{-- @include('blog.layouts.intro') --}}
     <main>
-        @include('blog.layouts.contenn-header',['name' => 'Trang chủ'])
-        <!-- Hero Area End-->
-        <!--? Blog Area Start-->
+        @include('blog.layouts.contenn-header',['name' => $cate->name])
+
         <section class="blog_area section-padding">
             <div class="container">
+                <div class="col-md-12">
+                    <p class="h1">{{$cate->name}}</p> <br>
+                    <p>{{$cate->category_content}}</p>
+                </div>
+                <hr style="margin-top: 4rem;">
+            </div>
+        </section>
+        <section class="blog_area section-padding">
+            <div class="container">
+
                 <div class="row">
                     <div class="col-lg-8 mb-5 mb-lg-0">
                         <div class="blog_left_sidebar">
@@ -42,7 +51,7 @@
                             </article>
                             @endforeach
 
-                            @for ($i = 1;$i <5;$i++)
+                            @for ($i = 1;$i <2;$i++)
                             <article class="blog_item">
                                 <div class="blog_item_img">
                                     <img class="card-img rounded-0" src="{{asset('nguyenphikhanh.net_template/assets/img/blog/single_blog_1.png')}}" alt="">

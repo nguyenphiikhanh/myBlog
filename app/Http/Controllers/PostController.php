@@ -99,7 +99,8 @@ class PostController extends Controller
         //
         $post = Post::where('slug',$slug)->first();
         $post->increment('view_count');
-        return view('blog.content',compact('post'));
+        $categories = Category::latest()->get();
+        return view('blog.content',compact('post','categories'));
     }
 
     /**

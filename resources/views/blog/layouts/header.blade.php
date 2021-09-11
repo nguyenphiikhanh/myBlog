@@ -1,7 +1,5 @@
 @php
-    use App\Category;
     use App\User;
-    $categories = Category::latest()->get();
 
     $me = User::latest()->first();
 
@@ -24,7 +22,7 @@
                                 <ul id="navigation">
                                     <li><a href="{{route('page.index')}}">Trang chủ</a></li>
                                     @foreach ($categories as $category)
-                                    <li><a href="about.html">{{$category->name}}</a></li>
+                                    <li><a href="{{route('category.show',['slug' => $category->slug])}}">{{$category->name}}</a></li>
                                     @endforeach
                                     <li><a href="contact.html">Mình là ai?</a></li>
                                 </ul>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use App\Category;
 
 class BlogController extends Controller
 {
@@ -17,8 +18,8 @@ class BlogController extends Controller
         //
         $paginations = 1;
         $posts = Post::latest()->paginate($paginations);
-        // dd($post);
-        return view('blog.home',compact('posts'));
+        $categories = Category::latest()->get();
+        return view('blog.home',compact('posts','categories'));
     }
 
     /**

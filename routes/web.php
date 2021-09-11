@@ -147,3 +147,8 @@ Route::get('/{slug}', [
     'as' => 'post.show',
     'uses' => 'PostController@show'
 ]);
+
+Route::get('/danhmuc/{slug}', [
+    'as' => 'category.show',
+    'uses' => 'CategoryPostController@show'
+]);
